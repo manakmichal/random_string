@@ -13,6 +13,8 @@ final class StringGenerator
 
   public $characters;
 
+  public $strings = array();
+
   public function __construct($numbers = true, $lowerChars = true, $upperChars = true, $specialChars = true)
   {
     if(!$numbers && !$lowerChars && !$upperChars && !$specialChars)
@@ -45,9 +47,10 @@ final class StringGenerator
    * Generate random strings with the specified length and amount
    * @param int
    * @param int
+   * @return StringGenerator
    * @throws InvalidArgumentException
    */
-  public function getStrings($length = 10, $number = 10)
+  public function generateStrings($length = 10, $number = 10)
   {
     if(gettype($length) != 'integer' || $length === 0)
       throw new InvalidArgumentException();
@@ -58,12 +61,19 @@ final class StringGenerator
     for ($i = 0; $i < $number; $i++) {
       $string = $this->generateString($length);
 
-      echo $string . "<br>";
+      $this->strings[] = $string;
     }
+
+    return $this;
+  }
+
+  /**
+   * Return the strings as an array
+   * @return array
+   */
+  public function getStrings(){
+    return $this->strings;
   }
 }
-
-$generator = new StringGenerator();
-$generator->getStrings(20, 20);
 
 ?>
