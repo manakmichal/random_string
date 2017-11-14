@@ -6,7 +6,7 @@ You can generate a string using characters, numbers and special characters.
 
 ```php
 $generator = new StringGenerator();
-$generator->getStrings();
+$generator->generateStrings()->getStrings();
 ```
 
 By default, it generates 10 strings with length of 10. The output will be:
@@ -34,7 +34,7 @@ For example, to generate just letters, you can specify it like this:
 
 ```php
 $generator = new StringGenerator(false, true, true, false);
-$generator->getStrings();
+$generator->generateStrings()->getStrings();
 ```
 
 The outpull will be:
@@ -51,17 +51,17 @@ YIcgwHrCfM
 aieodzxVhn
 ```
 
-And if you want longer string or a bigger list, you can set it in the `getString()` function:
+And if you want longer string or a bigger list, you can set it in the `generateString()` function:
 
 ```php
-public function getStrings($length = 10, $number = 10)
+public function generateStrings($length = 10, $number = 10)
 ```
 
 So if you want 30 chars long strings and list of 5 strings, just call the function like this:
 
 ```php
 $generator = new StringGenerator();
-$generator->getStrings(30, 5);
+$generator->generateStrings(30, 5)->getStrings();
 ```
 
 The output will be like this:
