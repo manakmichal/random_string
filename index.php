@@ -13,7 +13,11 @@ final class StringGenerator
 
   public $characters;
 
-  public function __construct($numbers = true, $lowerChars = true, $upperChars = true, $specialChars = true){
+  public function __construct($numbers = true, $lowerChars = true, $upperChars = true, $specialChars = true)
+  {
+    if(!$numbers && !$lowerChars && !$upperChars && !$specialChars)
+      throw new InvalidArgumentException();
+
     $this->characters .= $numbers ? $this->numbers : "";
     $this->characters .= $lowerChars ? $this->lowerChars: "";
     $this->characters .= $upperChars ? $this->upperChars : "";
@@ -25,7 +29,8 @@ final class StringGenerator
    * @param string
    * @return string
    */
-  private function generateString($length){
+  private function generateString($length)
+  {
     $randomString = '';
     $charactersLength = strlen($this->characters);
 
@@ -40,8 +45,16 @@ final class StringGenerator
    * Generate random strings with the specified length and amount
    * @param int
    * @param int
+   * @throws InvalidArgumentException
    */
-  public function getStrings($length = 10, $number = 10){
+  public function getStrings($length = 10, $number = 10)
+  {
+    if(gettype($length) != 'integer' || $length === 0)
+      throw new InvalidArgumentException();
+
+    if(gettype($number) != 'integer' || $number === 0)
+      throw new InvalidArgumentException();
+
     for ($i = 0; $i < $number; $i++) {
       $string = $this->generateString($length);
 
