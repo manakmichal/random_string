@@ -1,5 +1,5 @@
 # Random string generator
-Generate random string for any purpose.
+Generate random string for any purpose. Demo is available on https://www.manakmichal.cz/playground/password/.
 
 ## Behavior
 You can generate a string using characters, numbers and special characters.
