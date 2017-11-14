@@ -72,6 +72,9 @@ final class StringGenerator
    * @return array
    */
   public function getStrings(){
+    if(count($this->strings) == 0)
+      throw new UnexpectedValueException();
+
     return $this->strings;
   }
 }
