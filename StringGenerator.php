@@ -1,5 +1,7 @@
 <?php
 
+namespace StringGenerator;
+
 final class StringGenerator
 {
 
@@ -9,7 +11,7 @@ final class StringGenerator
 
   public $upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  public $specialChars = '+@#$~^&*-_';
+  public $specialChars = '+@#$~&*-_°';
 
   public $characters;
 
